@@ -1,5 +1,6 @@
-FROM tomcat:9.0-jdk17-temurin-jammy
-WORKDIR /usr/local/tomee
-COPY build/libs/routes-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/routes-0.0.1-SNAPSHOT.war
+FROM maven:3.8-jdk-17
+WORKDIR /app
+COPY . /app
+RUN mvn clean package -DskipTests
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+ENTRYPOINT ["java", "-jar", "target/*.jar"]
