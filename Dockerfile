@@ -1,6 +1,5 @@
-# Etapa de compilación
-FROM maven:3.8-jdk-17
-WORKDIR /app
-COPY pom.xml .
-COPY src ./src
-RUN mvn clean package -DskipTests
+FROM adoptopenjdk/openjdk11:alpine-slim
+
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
