@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class SelectService {
 
-    private static final Logger logger = LoggerFactory.getLogger(AIService.class);
+    private static final Logger logger = LoggerFactory.getLogger(SelectService.class);
 
     private static final String GEMINI_MODEL = "gemini-2.0-flash";
 
