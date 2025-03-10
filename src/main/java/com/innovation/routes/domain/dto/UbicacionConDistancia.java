@@ -18,6 +18,6 @@ public class UbicacionConDistancia implements Comparable<UbicacionConDistancia>{
 
     @Override
     public int compareTo(UbicacionConDistancia otra) {
-        return Double.compare(this.distanciaTiempo.getDistancia(), otra.distanciaTiempo.getDistancia());
+        return Double.compare(this.distanciaTiempo.getTiempo(), otra.distanciaTiempo.getTiempo());
     }
 }
