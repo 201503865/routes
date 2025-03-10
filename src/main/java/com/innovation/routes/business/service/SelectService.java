@@ -53,16 +53,10 @@ public class SelectService {
                 "\n" +
                 "Para un vehiculo"+ vehicle +"en tipo de grua es cual necesito para moverlo tengo small 5 toneladas mediana de 5-30 y grande mayor de 30, en tipo de grua solo necesito que coloques solo una de las palabras: small, mediana o grande y el peso en kg y las dimensiones en mentros";
 
-        // Prepare headers
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-
-        // Prepare request entity
         fullPrompt = getPromptBody(fullPrompt);
         HttpEntity<String> requestEntity = new HttpEntity<>(fullPrompt, headers);
-
-
-        // Perform HTTP POST request
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> responseEntity = restTemplate.exchange(
                 "https://generativelanguage.googleapis.com/v1beta/models/" + GEMINI_MODEL + ":generateContent?key="+ API_KEY,
@@ -79,7 +73,7 @@ public class SelectService {
             } catch (Exception e) {
                 logger.error("Error in Parding");
             }
-            return convertDataToVehicle(responseText); // Return the fetched summary response
+            return convertDataToVehicle(responseText);
         } else {
             throw new RuntimeException("API request failed with status code: " + statusCode + " and response: " + responseEntity.getBody());
         }
@@ -89,8 +83,6 @@ public class SelectService {
         int inicio = texto.indexOf('{');
         int fin = texto.lastIndexOf('}') + 1;
         String jsonStr = texto.substring(inicio, fin);
-
-        // 2. Convertir el JSON a un objeto JsonNode
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = null;
         try {
@@ -100,9 +92,6 @@ public class SelectService {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-
-        // 3. Mapear el JsonNode a un objeto Java (opcional)
-
         return  null;
     }
 
@@ -126,23 +115,13 @@ public class SelectService {
     }
 
     public static String parseGeminiResponse(String jsonResponse) throws IOException, ParseException {
-        // Parse the JSON string
         JSONObject jsonObject = (JSONObject) new JSONParser().parse(jsonResponse);
-
-        // Get the "candidates" array
         JSONArray candidatesArray = (JSONArray) jsonObject.get("candidates");
-
-        // Assuming there's only one candidate (index 0), extract its content
         JSONObject candidateObject = (JSONObject) candidatesArray.get(0);
         JSONObject contentObject = (JSONObject) candidateObject.get("content");
-
-        // Get the "parts" array within the content
         JSONArray partsArray = (JSONArray) contentObject.get("parts");
-
-        // Assuming there's only one part (index 0), extract its text
         JSONObject partObject = (JSONObject) partsArray.get(0);
         String responseText = (String) partObject.get("text");
-
         return responseText;
     }
 

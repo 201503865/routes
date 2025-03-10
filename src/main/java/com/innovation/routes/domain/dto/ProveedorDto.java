@@ -11,5 +11,8 @@ public class ProveedorDto {
     String proveedorName;
     String time;
     String distance;
-    String servicio;
+    String phoneNumber;
+    String direccion;
+    String department;
+    String distanceLimit;
 }

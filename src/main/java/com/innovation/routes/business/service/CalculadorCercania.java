@@ -40,8 +40,6 @@ public class CalculadorCercania {
         urlBuilder.addQueryParameter("key", API_KEY);
 
         String url = urlBuilder.build().toString();
-        System.out.println(url);
-
         Request request = new Request.Builder()
                 .url(url)
                 .build();
