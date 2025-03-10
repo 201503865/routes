@@ -11,4 +11,5 @@ public class ProveedorDto {
     String proveedorName;
     String time;
     String distance;
+    String servicio;
 }
