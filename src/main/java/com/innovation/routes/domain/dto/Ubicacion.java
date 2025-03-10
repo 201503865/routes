@@ -10,12 +10,12 @@ public class Ubicacion {
     double latitud;
     double longitud;
     Proveedor proveedor;
-    double distancia;
+    DistanciaTiempo distanciaTiempo;
 
-    public Ubicacion(double latitud, double longitud,Proveedor proveedor,double distancia) {
+    public Ubicacion(double latitud, double longitud,Proveedor proveedor,DistanciaTiempo distanciaTiempo) {
         this.latitud = latitud;
         this.longitud = longitud;
         this.proveedor= proveedor;
-        this.distancia= distancia;
+        this.distanciaTiempo= distanciaTiempo;
     }
 }

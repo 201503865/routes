@@ -1,5 +1,6 @@
 package com.innovation.routes.presentation.controller;
 
+import com.innovation.routes.business.service.AIService;
 import com.innovation.routes.business.service.GestionVialService;
 import com.innovation.routes.domain.dto.Servicio;
 import com.innovation.routes.domain.dto.UbicacionConDistancia;
@@ -15,9 +16,16 @@ import java.util.List;
 public class GestionVialIAController {
     @Autowired
     GestionVialService gestionVialService;
+    @Autowired
+    AIService aiService;
 
     @PostMapping("/better-routes")
     public ResponseEntity getBetterRoutes(@RequestBody Servicio servicio) throws Exception {
         return ResponseEntity.ok(gestionVialService.getBetterRoutes(servicio));
+    }
+
+    @PostMapping("/get-data")
+    public ResponseEntity getGeminiData(@RequestBody Servicio servicio){
+        return ResponseEntity.ok(aiService.chat(servicio.getVehicle()));
     }
 }

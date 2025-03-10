@@ -42,6 +42,9 @@ public class LectorExcel {
             proveedor.setEnvioCombustible(fila.getCell(8).getStringCellValue().equalsIgnoreCase("si"));
             proveedor.setCambioLlanta(fila.getCell(9).getStringCellValue().equalsIgnoreCase("si"));
             proveedor.setCerrajeria(fila.getCell(10).getStringCellValue().equalsIgnoreCase("si"));
+            proveedor.setGruaSmall(fila.getCell(11).getStringCellValue().equalsIgnoreCase("si"));
+            proveedor.setGruaMediana(fila.getCell(12).getStringCellValue().equalsIgnoreCase("si"));
+            proveedor.setGruaGrande(fila.getCell(13).getStringCellValue().equalsIgnoreCase("si"));
             proveedores.add(proveedor);
         }
 

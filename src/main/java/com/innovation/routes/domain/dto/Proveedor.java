@@ -19,4 +19,7 @@ public class Proveedor {
     private boolean envioCombustible;
     private boolean cambioLlanta;
     private boolean cerrajeria;
+    private boolean gruaSmall;
+    private boolean gruaMediana;
+    private boolean gruaGrande;
 }

@@ -19,9 +19,9 @@ public class GestionVialService {
         List<UbicacionConDistancia> results = CalculadorCercania.encontrarLas3UbicacionesMasCercanas(ubicacions,coordenadasServicio[0],coordenadasServicio[1]);
         for(UbicacionConDistancia result:results){
             System.out.println("Proveedor: "+result.getUbicacion().getProveedor().getNombreProveedor());
-            System.out.println("Tiempo: "+convertirTiempo((long)result.getTiempo()));
-            System.out.println("Distancia: "+ new BigDecimal(result.getDistancia()).setScale(2, RoundingMode.HALF_UP)+"km");
-            ProveedorDto proveedorDto =new ProveedorDto(result.getUbicacion().getProveedor().getNombreProveedor(),convertirTiempo((long)result.getTiempo()),new BigDecimal(result.getDistancia()).setScale(2, RoundingMode.HALF_UP)+"km");
+            System.out.println("Tiempo: "+convertirTiempo((long)result.getDistanciaTiempo().getTiempo()));
+            System.out.println("Distancia: "+ new BigDecimal(result.getDistanciaTiempo().getDistancia()).setScale(2, RoundingMode.HALF_UP)+"km");
+            ProveedorDto proveedorDto =new ProveedorDto(result.getUbicacion().getProveedor().getNombreProveedor(),convertirTiempo((long)result.getDistanciaTiempo().getTiempo()),new BigDecimal(result.getDistanciaTiempo().getDistancia()).setScale(2, RoundingMode.HALF_UP)+"km");
             proveedorDtos.add(proveedorDto);
         }
         return proveedorDtos;

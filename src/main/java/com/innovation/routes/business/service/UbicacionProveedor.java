@@ -1,5 +1,6 @@
 package com.innovation.routes.business.service;
 
+import com.innovation.routes.domain.dto.DistanciaTiempo;
 import com.innovation.routes.domain.dto.Proveedor;
 import com.innovation.routes.domain.dto.Servicio;
 import com.innovation.routes.domain.dto.Ubicacion;
@@ -15,9 +16,9 @@ public class UbicacionProveedor {
         double[] coordenadasServicio = GoogleMapsDirectionsService.obtenerCoordenadas(servicio.getUbicacion());
         for (Proveedor proveedor:proveedoresFiltrados) {
             double[] coordenadas = GoogleMapsDirectionsService.obtenerCoordenadas(proveedor.getUbicacionMaps());
-            double result = CalculadorCercania.calcularDistancia(coordenadas[0],coordenadas[1],coordenadasServicio[0],coordenadasServicio[1]);
-            if(result<proveedor.getKilometros()){
-                ubicaciones.add(new Ubicacion(coordenadas[0],coordenadas[1],proveedor,result));
+            DistanciaTiempo distanciaTiempo = CalculadorCercania.calcularDistanciaTiempo(coordenadas[0],coordenadas[1],coordenadasServicio[0],coordenadasServicio[1]);
+            if(distanciaTiempo.getDistancia()<proveedor.getKilometros()){
+                ubicaciones.add(new Ubicacion(coordenadas[0],coordenadas[1],proveedor,distanciaTiempo));
             }
         }
         return ubicaciones;

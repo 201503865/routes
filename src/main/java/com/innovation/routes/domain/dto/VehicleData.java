@@ -7,8 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Servicio {
-    private String ubicacion;
-    private String servicio;
-    private String vehicle;
+public class VehicleData {
+    private String modelo;
+    private int año;
+    private Dimensiones dimensiones;
+    private String peso;
+    private String tipo_grua;
 }
