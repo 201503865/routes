@@ -3,10 +3,12 @@ package com.innovation.routes.business.service;
 import com.innovation.routes.domain.dto.Proveedor;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -15,8 +17,8 @@ public class LectorExcel {
 
     public static List<Proveedor> leerExcel(String rutaArchivo) throws IOException {
         List<Proveedor> proveedores = new ArrayList<>();
-
-        FileInputStream archivo = new FileInputStream(new File(rutaArchivo));
+        ClassPathResource resource = new ClassPathResource(rutaArchivo);
+        InputStream archivo = resource.getInputStream();
         Workbook workbook = new XSSFWorkbook(archivo);
         Sheet sheet = workbook.getSheetAt(0); // Leer la primera hoja
 

@@ -3,7 +3,6 @@ package com.innovation.routes.business.service;
 import com.innovation.routes.domain.dto.*;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class GestionVialService {
 
     public List<ProveedorDto> getBetterRoutes(Servicio servicio) throws Exception {
         List<ProveedorDto> proveedorDtos = new ArrayList<>();
-        List<Proveedor> proveedors = LectorExcel.leerExcel("src/data/Contactos de asistencia.xlsx");
+        List<Proveedor> proveedors = LectorExcel.leerExcel("Contactos de asistencia.xlsx");
         List<Ubicacion> ubicacions= UbicacionProveedor.ObtenerProveedores(proveedors,servicio);
         double[] coordenadasServicio = GoogleMapsDirectionsService.obtenerCoordenadas(servicio.getUbicacion());
         List<UbicacionConDistancia> results = CalculadorCercania.encontrarLas3UbicacionesMasCercanas(ubicacions,coordenadasServicio[0],coordenadasServicio[1]);
