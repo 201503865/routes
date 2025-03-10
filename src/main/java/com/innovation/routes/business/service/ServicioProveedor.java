@@ -13,6 +13,8 @@ public class ServicioProveedor {
         SERVICIO_A_PROPIEDAD.put("pasoCorrienteJumper", "pasoCorrienteJumper");
         SERVICIO_A_PROPIEDAD.put("pasoCorrienteCables", "pasoCorrienteCables");
         SERVICIO_A_PROPIEDAD.put("envioCombustible", "envioCombustible");
+        SERVICIO_A_PROPIEDAD.put("cambioLlanta", "cambioLlanta");
+        SERVICIO_A_PROPIEDAD.put("cerrajeria", "cerrajeria");
         SERVICIO_A_PROPIEDAD.put("small", "gruaSmall");
         SERVICIO_A_PROPIEDAD.put("mediana", "gruaMediana");
         SERVICIO_A_PROPIEDAD.put("grande", "gruaGrande");
