@@ -7,14 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Ubicacion {
-    double latitud;
-    double longitud;
     Proveedor proveedor;
     DistanciaTiempo distanciaTiempo;
 
-    public Ubicacion(double latitud, double longitud,Proveedor proveedor,DistanciaTiempo distanciaTiempo) {
-        this.latitud = latitud;
-        this.longitud = longitud;
+    public Ubicacion(Proveedor proveedor,DistanciaTiempo distanciaTiempo) {
         this.proveedor= proveedor;
         this.distanciaTiempo= distanciaTiempo;
     }

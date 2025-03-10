@@ -22,4 +22,6 @@ public class Proveedor {
     private boolean gruaSmall;
     private boolean gruaMediana;
     private boolean gruaGrande;
+    double latitud;
+    double longitud;
 }

@@ -20,7 +20,7 @@ public class CalculadorCercania {
 
     private static final String API_KEY = "AIzaSyDVwi7X_K8prsZwi-X1RX9dboC1pG9a80k";
 
-    public static List<UbicacionConDistancia> encontrarLas3UbicacionesMasCercanas(List<Ubicacion> ubicaciones, double latitudDestino, double longitudDestino) {
+    public static List<UbicacionConDistancia> encontrarLas3UbicacionesMasCercanas(List<Ubicacion> ubicaciones) {
         List<UbicacionConDistancia> ubicacionesConDistancia = new ArrayList<>();
         for (Ubicacion ubicacion : ubicaciones) {
             ubicacionesConDistancia.add(new UbicacionConDistancia(ubicacion,ubicacion.getDistanciaTiempo()));

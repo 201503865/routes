@@ -17,8 +17,7 @@ public class GestionVialService {
         String serviceType = SelectService.serviceType(servicio);
         servicio.setServicio(serviceType);
         List<Ubicacion> ubicacions= UbicacionProveedor.ObtenerProveedores(proveedors,servicio);
-        double[] coordenadasServicio = GoogleMapsDirectionsService.obtenerCoordenadas(servicio.getUbicacion());
-        List<UbicacionConDistancia> results = CalculadorCercania.encontrarLas3UbicacionesMasCercanas(ubicacions,coordenadasServicio[0],coordenadasServicio[1]);
+        List<UbicacionConDistancia> results = CalculadorCercania.encontrarLas3UbicacionesMasCercanas(ubicacions);
         for(UbicacionConDistancia result:results){
             System.out.println("Proveedor: "+result.getUbicacion().getProveedor().getNombreProveedor());
             System.out.println("Tiempo: "+convertirTiempo((long)result.getDistanciaTiempo().getTiempo()));

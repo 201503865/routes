@@ -11,4 +11,6 @@ public class Servicio {
     private String ubicacion;
     private String servicio;
     private String vehicle;
+    double latitud;
+    double longitud;
 }
